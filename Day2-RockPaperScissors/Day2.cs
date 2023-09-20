@@ -1,6 +1,7 @@
 ﻿/* Day2.cs
  * Author: Natasha Graham
  * Created 2023-09-19
+ * Updated 2023-09-20
  */
 
 String? match = Console.ReadLine();
