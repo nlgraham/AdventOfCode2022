@@ -20,6 +20,13 @@ while(input.Length != 1)
     {
         compContained++;
     }
+    else if(((Int32.Parse(elf1[0]) >= Int32.Parse(elf2[0])) && (Int32.Parse(elf1[0]) <= Int32.Parse(elf2[1]))) ||
+        ((Int32.Parse(elf2[0]) >= Int32.Parse(elf1[0])) && (Int32.Parse(elf2[0]) <= Int32.Parse(elf1[1]))) ||
+        ((Int32.Parse(elf1[1]) >= Int32.Parse(elf2[0])) && (Int32.Parse(elf1[1]) <= Int32.Parse(elf2[1]))) ||
+        ((Int32.Parse(elf2[1]) >= Int32.Parse(elf1[0])) && (Int32.Parse(elf2[1]) <= Int32.Parse(elf1[1]))))
+    {
+        compContained++;
+    }
 
     input = Console.ReadLine().Split(',');
     if(input.Length == 1)
@@ -36,3 +43,4 @@ Console.WriteLine(compContained);
 
 
 // part 1 answer 424
+// part 2 answer 804
