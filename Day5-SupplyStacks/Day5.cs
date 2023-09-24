@@ -22,14 +22,21 @@ String[] input = Console.ReadLine().Split(' ');
 while (input.Length > 1)
 {
     int i = int.Parse(input[1]);
-    int col1 = int.Parse(input[3]) - 1;
-    int col2 = int.Parse(input[5]) - 1;
+    int source = int.Parse(input[3]) - 1;
+    int destination = int.Parse(input[5]) - 1;
+
+    Stack<char> temp = new Stack<char>();
 
     while(i > 0)
     {
-        stacks[col2].Push(stacks[col1].Pop());
+        temp.Push(stacks[source].Pop());
 
         i--;
+    }
+
+    while(temp.Count > 0)
+    {
+        stacks[destination].Push(temp.Pop());
     }
 
     input = Console.ReadLine().Split(' ');
