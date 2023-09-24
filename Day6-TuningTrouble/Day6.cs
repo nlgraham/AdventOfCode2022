@@ -11,21 +11,21 @@ ReadOnlySpan<char> stream = Console.ReadLine().AsSpan();
 int index = 0;
 
 
-// Run through set of four characters in a row, starting with index 3 to the end
-// Each set of four is added to a HashSet
-// Which is then checked for four unique entries
+// Run through set of 14 characters in a row, starting with index 13 to the end
+// Each set of 14 is added to a HashSet
+// Which is then checked for 14 unique entries
 // Upon which the current index + one is given to the answer int
 // and the loop is broken
-for(int i = 3; i < stream.Length; i++)
+for(int i = 13; i < stream.Length; i++)
 {
     HashSet<char> set = new HashSet<char>();
 
-    foreach (char c in stream[(i - 3)..(i + 1)])
+    foreach (char c in stream[(i - 13)..(i + 1)])
     {
         set.Add(c);
     }
 
-    if(set.Count == 4)
+    if(set.Count == 14)
     {
         index = i + 1;
         break;
