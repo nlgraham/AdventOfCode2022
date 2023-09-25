@@ -74,5 +74,22 @@ namespace Day7_NoSpaceLeftOnDevice
 
             return Size;
         }
+
+        public int FindLargeDir(List<int> finalNodes)
+        {
+            foreach (TreeNode child in Children)
+            {
+                if (child.IsDir)
+                { Size += child.FindLargeDir(finalNodes); }
+                else
+                {
+                    Size += child.Size;
+                }
+            }
+
+            finalNodes.Add(Size);
+
+            return Size;
+        }
     }
 }

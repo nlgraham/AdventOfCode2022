@@ -48,9 +48,10 @@ while(input.Length > 1)
     }
 }
 
-List<int> sizes = new List<int>();
+List<int> smalls = new List<int>();
 
-int rootSize = root.FindDirSize(100000, sizes);
+/*
+int rootSize = root.FindDirSize(100000, smalls);
 
 int sumOfSizes = 0;
 
@@ -58,5 +59,24 @@ foreach(int s in sizes)
 {
     sumOfSizes += s;
 }
+*/
 
-Console.WriteLine(sumOfSizes);
+List<int> sizes = new List<int>();
+int rootSize = root.FindLargeDir(sizes);
+
+
+int emptySpace = totalSystemSize - rootSize;
+
+int makeRoom = minUpdateSpace - emptySpace;
+
+List<int> bigEnough = new List<int>();
+
+foreach(int i in sizes)
+{
+    if(i >= makeRoom)
+    {
+        bigEnough.Add(i);
+    }
+}
+
+Console.WriteLine(bigEnough.Min());
