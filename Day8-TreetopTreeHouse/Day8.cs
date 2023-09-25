@@ -5,7 +5,7 @@
 
 List<List<int>> forest = new List<List<int>>();
 
-int count = 0;
+int max = 0;
 
 string input = Console.ReadLine();
 
@@ -24,71 +24,56 @@ for (int i = 1; i < forest.Count - 1; i++)
 {
     for (int j = 1; j < forest[i].Count - 1; j++)
     {
-        bool isVis = true;
+        int up = 0;
+        int down = 0;
+        int left = 0;
+        int right = 0;
+        int temp;
 
-        for (int y = 0; y < j; y++)
+        for (int y = j - 1; y >= 0; y--)
         {
+            up++;
             if (forest[i][y] >= forest[i][j])
             {
-                isVis = false;
                 break;
             }
         }
-        if (isVis)
-        {
-            count++;
-            continue;
-        }
-        isVis = true;
 
         for (int y = j + 1; y < forest[i].Count; y++)
         {
+            down++;
             if (forest[i][y] >= forest[i][j])
             {
-                isVis = false;
                 break;
             }
         }
-        if (isVis)
-        {
-            count++;
-            continue;
-        }
-        isVis = true;
 
-        for (int x = 0; x < i; x++)
+        for (int x = i - 1; x >= 0; x--)
         {
+            left++;
             if (forest[x][j] >= forest[i][j])
             {
-                isVis = false;
                 break;
             }
         }
-        if (isVis)
-        {
-            count++;
-            continue;
-        }
-        isVis = true;
 
         for (int x = i + 1; x < forest.Count; x++)
         {
+            right++;
             if (forest[x][j] >= forest[i][j])
             {
-                isVis = false;
                 break;
             }
         }
-        if (isVis)
+
+        temp = up * down * left * right;
+
+        if(temp > max)
         {
-            count++;
-            continue;
+            max = temp;
         }
     }
 
 }
 
-count += forest.Count * 2;
-count += forest[0].Count * 2 - 4;
-
-Console.WriteLine(count);
+Console.WriteLine(max);
