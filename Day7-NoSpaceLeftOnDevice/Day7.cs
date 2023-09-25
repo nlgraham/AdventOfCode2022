@@ -62,7 +62,7 @@ foreach(int s in sizes)
 */
 
 List<int> sizes = new List<int>();
-int rootSize = root.FindLargeDir(sizes);
+int rootSize = root.FindDirSize(sizes);
 
 
 int emptySpace = totalSystemSize - rootSize;

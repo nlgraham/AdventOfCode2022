@@ -38,7 +38,7 @@ namespace Day7_NoSpaceLeftOnDevice
 
         public String Name { get; set; }
         public int Size { get; set; }
-        public TreeNode Parent { get; set; }
+        public TreeNode? Parent { get; set; }
         public bool IsDir { get; set; }
         public List<TreeNode> Children { get; set;} = new List<TreeNode>();
 
@@ -55,12 +55,12 @@ namespace Day7_NoSpaceLeftOnDevice
             Size += s;
         }
 
-        public int FindDirSize(int maxSize, List<int> finalNodes)
+        public int FindSmallDir(int maxSize, List<int> finalNodes)
         {
             foreach(TreeNode child in Children)
             {
                 if(child.IsDir)
-                { Size += child.FindDirSize(maxSize, finalNodes); }
+                { Size += child.FindSmallDir(maxSize, finalNodes); }
                 else
                 {
                     Size += child.Size;
@@ -75,12 +75,12 @@ namespace Day7_NoSpaceLeftOnDevice
             return Size;
         }
 
-        public int FindLargeDir(List<int> finalNodes)
+        public int FindDirSize(List<int> finalNodes)
         {
             foreach (TreeNode child in Children)
             {
                 if (child.IsDir)
-                { Size += child.FindLargeDir(finalNodes); }
+                { Size += child.FindDirSize(finalNodes); }
                 else
                 {
                     Size += child.Size;
