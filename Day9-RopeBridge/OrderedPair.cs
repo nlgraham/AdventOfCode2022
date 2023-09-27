@@ -26,12 +26,12 @@ namespace Day9_RopeBridge
             Y += addend;
         }
 
-        public bool Equals(OrderedPair pair)
+        public override bool Equals(Object? obj)
         {
-            return X == pair.X && Y == pair.Y;
+            return obj is OrderedPair pair && X == pair.X && Y == pair.Y;
         }
 
-        public int GetHashCode()
+        public override int GetHashCode()
         {
             return X.GetHashCode() ^ Y.GetHashCode();
         }
