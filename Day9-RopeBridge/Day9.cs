@@ -6,11 +6,12 @@
 using Day9_RopeBridge;
 
 
-OrderedPair head = new OrderedPair(0, 0);
-OrderedPair tail = new OrderedPair(0, 0);
+OrderedPair[] rope = new OrderedPair[] { new OrderedPair(0,0), new OrderedPair(0, 0) , new OrderedPair(0, 0),
+            new OrderedPair(0,0), new OrderedPair(0,0), new OrderedPair(0,0), new OrderedPair(0,0), new OrderedPair(0,0),
+            new OrderedPair(0,0), new OrderedPair(0,0) };
 HashSet<OrderedPair> visited = new HashSet<OrderedPair>();
 
-visited.Add(new OrderedPair(tail.X, tail.Y));
+visited.Add(new OrderedPair(rope[9].X, rope[9].Y));
 
 string[] input = Console.ReadLine().Split(' ');
 
@@ -24,84 +25,90 @@ while(input.Length > 1)
         switch(direction)
         {
             case 'R':
-                head.UpdateX(1);
+                rope[0].UpdateX(1);
                 break;
             case 'L':
-                head.UpdateX(-1);
+                rope[0].UpdateX(-1);
                 break;
             case 'U':
-                head.UpdateY(1);
+                rope[0].UpdateY(1);
                 break;
             case 'D':
-                head.UpdateY(-1);
+                rope[0].UpdateY(-1);
                 break;
         }
 
-        if (!isNextTo(head, tail))
+        for (int j = 1; j < rope.Length; j++)
         {
-            if ((tail.X - head.X) < -1)
+            OrderedPair head = rope[j - 1];
+            OrderedPair tail = rope[j];
+
+            if (!isNextTo(head, tail))
             {
-                if ((tail.Y - head.Y) == 1)
+                if ((tail.X - head.X) < -1)
                 {
-                    tail.UpdateY(-1);
-                    tail.UpdateX(1);
+                    if ((tail.Y - head.Y) == 0)
+                        tail.UpdateX(1);
+                    else if ((tail.Y - head.Y) >= 1)
+                    {
+                        tail.UpdateY(-1);
+                        tail.UpdateX(1);
+                    }
+                    else if ((tail.Y - head.Y) <= -1)
+                    {
+                        tail.UpdateY(1);
+                        tail.UpdateX(1);
+                    }                    
                 }
-                else if ((tail.Y - head.Y) == -1)
+                else if ((tail.X - head.X) > 1)
                 {
-                    tail.UpdateY(1);
-                    tail.UpdateX(1);
+                    if ((tail.Y - head.Y) == 0)
+                        tail.UpdateX(-1);
+                    if ((tail.Y - head.Y) >= 1)
+                    {
+                        tail.UpdateY(-1);
+                        tail.UpdateX(-1);
+                    }
+                    else if ((tail.Y - head.Y) <= -1)
+                    {
+                        tail.UpdateY(1);
+                        tail.UpdateX(-1);
+                    }
                 }
-                else
-                    tail.UpdateX(1);
-            }
-            else if ((tail.X - head.X) > 1)
-            {
-                if ((tail.Y - head.Y) == 1)
+                else if ((tail.Y - head.Y) > 1)
                 {
-                    tail.UpdateY(-1);
-                    tail.UpdateX(-1);
+                    if ((tail.X - head.X) == 0)
+                        tail.UpdateY(-1);
+                    if ((tail.X - head.X) >= 1)
+                    {
+                        tail.UpdateY(-1);
+                        tail.UpdateX(-1);
+                    }
+                    else if ((tail.X - head.X) <= -1)
+                    {
+                        tail.UpdateY(-1);
+                        tail.UpdateX(1);
+                    }
                 }
-                else if ((tail.Y - head.Y) == -1)
+                else if ((tail.Y - head.Y) < -1)
                 {
-                    tail.UpdateY(1);
-                    tail.UpdateX(-1);
+                    if ((tail.X - head.X) == 0)
+                        tail.UpdateY(1);
+                    if ((tail.X - head.X) >= 1)
+                    {
+                        tail.UpdateY(1);
+                        tail.UpdateX(-1);
+                    }
+                    else if ((tail.X - head.X) <= -1)
+                    {
+                        tail.UpdateY(1);
+                        tail.UpdateX(1);
+                    }
                 }
-                else
-                    tail.UpdateX(-1);
-            }
-            else if ((tail.Y - head.Y) > 1)
-            {
-                if((tail.X - head.X) == 1)
-                {
-                    tail.UpdateY(-1);
-                    tail.UpdateX(-1);
-                }
-                else if ((tail.X - head.X) == -1)
-                {
-                    tail.UpdateY(-1);
-                    tail.UpdateX(1);
-                }
-                else
-                    tail.UpdateY(-1);
-            }
-            else if ((tail.Y - head.Y) < -1)
-            {
-                if((tail.X - head.X) == 1)
-                {
-                    tail.UpdateY(1);
-                    tail.UpdateX(-1);
-                }
-                else if ((tail.X - head.X) == -1)
-                {
-                    tail.UpdateY(1);
-                    tail.UpdateX(1);
-                }
-                else
-                    tail.UpdateY(1);
             }
         }
 
-        visited.Add(new OrderedPair(tail.X, tail.Y));
+        visited.Add(new OrderedPair(rope[9].X, rope[9].Y));
     }
 
     input = Console.ReadLine().Split(' ');
@@ -119,3 +126,6 @@ bool isNextTo(OrderedPair head, OrderedPair tail)
 }
 
 Console.WriteLine(visited.Count);
+
+
+// 2553 too high
