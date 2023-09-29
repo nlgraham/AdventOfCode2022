@@ -1,6 +1,7 @@
 ﻿/* Day9.cs
  * Author: Natasha Graham
  * Created 2023-09-25
+ * Updated: 2023-09-28
  */
 
 using Day9_RopeBridge;
@@ -126,6 +127,3 @@ bool isNextTo(OrderedPair head, OrderedPair tail)
 }
 
 Console.WriteLine(visited.Count);
-
-
-// 2553 too high

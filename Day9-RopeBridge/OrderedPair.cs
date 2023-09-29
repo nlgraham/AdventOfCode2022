@@ -1,4 +1,9 @@
-﻿using System;
+﻿/* OrderedPair.cs
+ * Author: Natasha Graham
+ * Created 2023-09-25
+ */
+
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;

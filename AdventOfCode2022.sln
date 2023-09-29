@@ -17,9 +17,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Day6-TuningTrouble", "Day6-
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Day7-NoSpaceLeftOnDevice", "Day7-NoSpaceLeftOnDevice\Day7-NoSpaceLeftOnDevice.csproj", "{76EB187B-1E8F-40DB-B6B6-1C04C7B3C1C2}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Day8-TreetopTreeHouse", "Day8-TreetopTreeHouse\Day8-TreetopTreeHouse.csproj", "{EE598B5B-8AA7-4AE5-A449-7BF02C2E0B4A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Day8-TreetopTreeHouse", "Day8-TreetopTreeHouse\Day8-TreetopTreeHouse.csproj", "{EE598B5B-8AA7-4AE5-A449-7BF02C2E0B4A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Day9-RopeBridge", "Day9-RopeBridge\Day9-RopeBridge.csproj", "{01E8A5D4-C61A-475D-8550-E41BA782571E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Day9-RopeBridge", "Day9-RopeBridge\Day9-RopeBridge.csproj", "{01E8A5D4-C61A-475D-8550-E41BA782571E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Day10-CathodeRayTube", "Day10-CathodeRayTube\Day10-CathodeRayTube.csproj", "{59070844-FB1A-4409-94C4-F6C86CCE3B79}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -63,6 +65,10 @@ Global
 		{01E8A5D4-C61A-475D-8550-E41BA782571E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{01E8A5D4-C61A-475D-8550-E41BA782571E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{01E8A5D4-C61A-475D-8550-E41BA782571E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{59070844-FB1A-4409-94C4-F6C86CCE3B79}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{59070844-FB1A-4409-94C4-F6C86CCE3B79}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{59070844-FB1A-4409-94C4-F6C86CCE3B79}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{59070844-FB1A-4409-94C4-F6C86CCE3B79}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
